@@ -1,11 +1,13 @@
 #load packages
 sapply(c('data.table', 'dplyr', 'tidyr','ggplot2','broom',
-         'rgdal','rgeos','maptools','tmap','ggpubr',
+         'rgdal','rgeos','maptools','tmap','ggpubr','cowplot',
          'terra','ggsn','maps','grid','ggpattern','ggforce'), 
        require, 
        character.only=T)
 
 mus_shp = readOGR('./Shapefiles/mushroom.shp')
+
+plot(mus_shp)
 
 mus_shp = spTransform(mus_shp, CRS('EPSG:29902'))
 
@@ -19,13 +21,14 @@ mus_shp = mus_shp %>%
   )) %>%
   as.data.frame()
 
-mus <- ggplot(data=mus_shp) + 
+mus <- ggplot() + 
   coord_fixed() +
-  geom_polygon_pattern(aes(x=long, y=lat, fill = id, pattern = piece),
+  geom_polygon_pattern(data=mus_shp,
+                       aes(x=long, y=lat, fill = id, pattern = piece),
                        pattern = 'stripe',
                        pattern_angle = mus_shp$piece,
                    position = position_dodge(1),
-                   color = 'white',
+                   color = 'black',
                    pattern_color = 'black',
                    pattern_fill = "white",
                    pattern_alpha = .4,
@@ -44,14 +47,17 @@ mus <- ggplot(data=mus_shp) +
   theme(text = element_text(size = 15)) +
   ggsn::scalebar(mus_shp, dist_unit = 'm', dist = 50, transform = F, 
                  st.dist = 0.02, st.size=4, height=0.01, location = 'bottomleft') +
-  ggsn::north(data = mus_shp, symbol=3)
+  ggsn::north(data = mus_shp, symbol=3) +
+  draw_image('./pic1.jpg',
+             x = 70060, y = 335450,
+             width = 100, height = 80)
 
 mus
 
 ggsave(
-  'Figure2.png',
+  'Figure1.png',
   mus,
-  path = './Graphs',
+  path = './Experiment two',
   width = 180,
   height = 220,
   units = 'mm',
