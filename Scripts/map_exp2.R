@@ -48,7 +48,7 @@ mus <- ggplot() +
   ggsn::scalebar(mus_shp, dist_unit = 'm', dist = 50, transform = F, 
                  st.dist = 0.02, st.size=4, height=0.01, location = 'bottomleft') +
   ggsn::north(data = mus_shp, symbol=3) +
-  draw_image('./pic1.jpg',
+  draw_image('./pic4.jpg',
              x = 70060, y = 335450,
              width = 100, height = 80)
 
