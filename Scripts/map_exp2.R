@@ -7,8 +7,6 @@ sapply(c('data.table', 'dplyr', 'tidyr','ggplot2','broom',
 
 mus_shp = readOGR('./Shapefiles/mushroom.shp')
 
-plot(mus_shp)
-
 mus_shp = spTransform(mus_shp, CRS('EPSG:29902'))
 
 mus_shp = tidy(mus_shp, region = 'patch')
@@ -40,6 +38,7 @@ mus <- ggplot() +
   annotate("text", x=70270, y=335570, label= '4', fontface =2, size = 8) +
   annotate("text", x=70225, y=335620, label= '3', fontface =2, size = 8) +
   annotate("text", x=70175, y=335675, label= '2', fontface =2, size = 8) +
+  geom_segment(aes(x = 70050, y = 335570, xend = 70100, yend = 335550), lwd = 1, color = 'red') +
   scale_fill_manual(values = c('grey90','grey70','grey50','grey30')) +
   theme_bw() +
   labs(x = 'Longitude',
