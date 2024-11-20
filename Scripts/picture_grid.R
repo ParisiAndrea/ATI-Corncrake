@@ -88,7 +88,7 @@ comv = ggarrange(p1,
 print(comv)
 
 ggsave(
-  'Figure3.png',
+  'Figure3.pdf',
   comv,
   path = './Experiment one',
   width = 200,
