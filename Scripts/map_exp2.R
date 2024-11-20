@@ -54,7 +54,7 @@ mus <- ggplot() +
 mus
 
 ggsave(
-  'Figure2.png',
+  'Figure2.pdf',
   mus,
   path = './Experiment two',
   width = 180,

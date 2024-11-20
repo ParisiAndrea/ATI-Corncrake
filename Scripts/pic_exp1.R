@@ -12,7 +12,7 @@ p3 = image_read('./pic3.jpg') %>% image_ggplot()
 p1 / (p2 | p3) + plot_layout(widths = c(6, 1 ,3, 1, 3))
 
 ###SAVE
-ggsave(filename = 'Figure1.png',  #filename = 'wave.svg'
+ggsave(filename = 'Figure1.pdf',  #filename = 'wave.svg'
        path = 'C:/Users/G00399072/OneDrive - Atlantic TU/Documents/ATI-Corncrake/Experiment one',
        width = 300, height = 250, units = "mm",
        dpi = 800)

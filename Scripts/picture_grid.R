@@ -7,8 +7,8 @@ sapply(c('data.table', 'dplyr', 'tidyr','ggplot2','grid',
 setwd('C:/Users/G00399072/OneDrive - Atlantic TU/Documents/ATI-Corncrake')
 
 img1 <- rasterGrob(readPNG('./Experiment one/Picture1.png'))
-img2 <- rasterGrob(readPNG('./Experiment one/Picture2.png'))
-img3 <- rasterGrob(readPNG('./Experiment one/Picture3.png'))
+img2 <- rasterGrob(readPNG('./Experiment one/Picture3.png'))
+img3 <- rasterGrob(readPNG('./Experiment one/Picture2.png'))
 img4 <- rasterGrob(readPNG('./Experiment one/Picture4.png'))
 
 
@@ -23,7 +23,7 @@ p1 = ggplot() +
                color = 'red',
                lwd = 2,
                alpha = .6) +
-  facet_wrap(~'Trial 1 (night) - Corncrake (20m)') +
+  facet_wrap(~'Flight 1 (night) - Corncrake (20m)') +
   theme_transparent(15)
 
 print(p1)
@@ -34,12 +34,12 @@ p2 = ggplot() +
                      expand = c(0,0)) +
   scale_y_continuous(limits = c(1,10),
                      expand = c(0,0)) +
-  geom_segment(aes(x = 4.2, y = 3.5, xend = 5, yend = 5),
+  geom_segment(aes(x = 5.8, y = 5.5, xend = 4.8, yend = 6.5),
                arrow = arrow(length = unit(0.5, "cm")), 
                color = 'red',
                lwd = 2,
                alpha = .6) +
-  facet_wrap(~'Trial 2 (night) - Grey partridge (10m)') +
+  facet_wrap(~'Flight 2 (night) - Corncrake (10m)') +
   theme_transparent(15)
 
 print(p2)
@@ -50,12 +50,12 @@ p3 = ggplot() +
                      expand = c(0,0)) +
   scale_y_continuous(limits = c(1,10),
                      expand = c(0,0)) +
-  geom_segment(aes(x = 5.8, y = 5.5, xend = 4.8, yend = 6.5),
+  geom_segment(aes(x = 4.2, y = 3.5, xend = 5, yend = 5),
                arrow = arrow(length = unit(0.5, "cm")), 
                color = 'red',
                lwd = 2,
                alpha = .6) +
-  facet_wrap(~'Trial 2 (night) - Corncrake (20m)') +
+  facet_wrap(~'Flight 2 (night) - Grey partridge (10m)') +
   theme_transparent(15)
 
 print(p3)
@@ -71,7 +71,7 @@ p4 = ggplot() +
                color = 'blue',
                lwd = 2,
                alpha = .6) +
-  facet_wrap(~'Trial 2 (sunrise) - Grey partridge (10m)') +
+  facet_wrap(~'Flight 2 (sunrise) - Grey partridge (10m)') +
   theme_transparent(15)
 
 print(p4)

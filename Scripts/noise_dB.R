@@ -124,9 +124,9 @@ db = ggplot(summa, aes(factor(freq), mean, color = height, shape = height)) +
 
 print(db)
 
-ggsave(filename = 'Figure4.png',  #filename = 'wave.svg'
+ggsave(filename = 'Figure4.pdf',  #filename = 'wave.svg'
        db,
-       path = './Graphs',
+       path = './Experiment two',
        width = 250, height = 150, units = "mm",
        dpi = 600)
 
